@@ -96,6 +96,8 @@
 
             $parentList.show().find('form').removeClass('hidden');
             this.formOpened = true;
+            // TODO: посмотреть нужно или нет сейчас
+            // $(".select2-container--default").css({width: '100%'}); 
         },
 
         destroy: function () {
