@@ -271,8 +271,3 @@
 
     return QorWorker;
 });
-
-$(document).ready(function () {
-    console.log('-------- REMOVE base worker --------------');
-    $('div[data-picker-type="date"] div button[data-toggle="qor.timepicker"]').remove();
-});
