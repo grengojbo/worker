@@ -26,7 +26,9 @@
         CLASS_SELECT = '.is-selected';
 
     function updateProgress(progress) {
-        document.querySelector('#qor-worker--progress').MaterialProgress.setProgress(progress);
+        if (document.querySelector('#qor-worker--progress')) {
+            document.querySelector('#qor-worker--progress').MaterialProgress.setProgress(progress);
+        }
     }
 
     function QorWorker(element, options) {
@@ -268,4 +270,9 @@
     });
 
     return QorWorker;
+});
+
+$(document).ready(function () {
+    console.log('-------- REMOVE base worker --------------');
+    $('div[data-picker-type="date"] div button[data-toggle="qor.timepicker"]').remove();
 });
