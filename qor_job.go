@@ -22,6 +22,8 @@ type QorJobInterface interface {
 	SetStatus(string) error
 	GetJob() *Job
 	SetJob(*Job)
+	GetShow() string
+	SetShow(string)
 
 	GetProgress() uint
 	SetProgress(uint) error
@@ -70,6 +72,7 @@ type TableCell struct {
 type QorJob struct {
 	gorm.Model
 	Status       string `sql:"default:'new'"`
+	Show string
 	Progress     uint
 	ProgressText string
 	Log          string       `sql:"size:65532"`
@@ -114,6 +117,19 @@ func (job *QorJob) SetStatus(status string) error {
 func (job *QorJob) SetJob(j *Job) {
 	job.Kind = j.Name
 	job.Job = j
+}
+
+// GetShow - return display text
+func (job *QorJob) GetShow() string {
+	if len(job.Show) > 1 {
+		return job.Show
+	}
+	return job.Kind
+}
+
+// SetShow set display text job
+func (job *QorJob) SetShow(str string) {
+		job.Show = str
 }
 
 // GetJob get predefined job for a qor job instance
