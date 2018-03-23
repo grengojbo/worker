@@ -74,7 +74,7 @@ func (worker *Worker) ConfigureQorResourceBeforeInitialize(res resource.Resource
 		worker.JobResource = worker.Admin.NewResource(worker.Config.Job)
 		worker.JobResource.UseTheme("worker")
 		worker.JobResource.Meta(&admin.Meta{Name: "Name", Valuer: func(record interface{}, context *qor.Context) interface{} {
-			return record.(QorJobInterface).GetJobName()
+			return record.(QorJobInterface).GetShow()
 		}})
 		worker.JobResource.IndexAttrs("ID", "Name", "Status", "CreatedAt")
 		worker.JobResource.Name = res.Name
