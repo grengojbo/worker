@@ -26,7 +26,8 @@
         CLASS_SELECT = '.is-selected';
 
     function updateProgress(progress) {
-        if (document.querySelector('#qor-worker--progress')) {
+        let $progress = document.querySelector('#qor-worker--progress');
+        if ($progress) {
             document.querySelector('#qor-worker--progress').MaterialProgress.setProgress(progress);
         }
     }
@@ -107,7 +108,7 @@
                 .removeClass('hidden');
             this.formOpened = true;
             // TODO: посмотреть нужно или нет сейчас
-            // $(".select2-container--default").css({width: '100%'}); 
+            // $(".select2-container--default").css({width: '100%'});
         },
 
         destroy: function() {
